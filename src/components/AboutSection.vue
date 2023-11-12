@@ -61,7 +61,7 @@
 <script setup>
 import TextAnimation from './TextAnimation.vue'
 
-import {ref} from  vue;
+import {ref} from "vue";
 // Coding languages array
 const codingLanguages = [
   'c',
