@@ -8,15 +8,13 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+   
       
     },
     
   
   "dependencies": {
-    "@vuedoc/md": "^4.0.0-beta8",
-    "@vuedoc/parser": "^4.0.0-beta12",
+    
     "axios": "^1.6.1",
     "save": "^2.9.0",
     "serve": "^14.2.1",
@@ -32,7 +30,6 @@
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
     "prettier": "^3.0.3",
-    "vite": "^4.4.11",
-    "vuepress": "^1.9.10"
+    "vite": "^4.4.11"
   }
 }
