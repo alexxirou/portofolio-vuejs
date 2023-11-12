@@ -1,0 +1,47 @@
+/* Set smooth scroll behavior for html and body */
+html,
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Common classes */
+
+/* Set full-screen height and width */
+.full-screen {
+  height: 100vh;
+  width: 100%;
+  min-height: 800px;
+}
+
+/* Set flexbox properties for centering */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Set font properties for Roboto font, white color */
+.font-roboto-16-white {
+  font-size: 16px;
+  font-family: Roboto;
+  color: white;
+}
+
+/* Common styles */
+
+/* Set higher z-index for front element */
+.front {
+  z-index: 1;
+}
+
+/* Set black background color */
+.bg-black {
+  background-color: black;
+}
+
+/* Set transparent background color */
+.bg-transparent {
+  background-color: transparent;
+}
