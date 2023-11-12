@@ -47,7 +47,7 @@
         <br/>
         <!-- Download CV button -->
         <a
-          href="file.doc"
+          @click.prevent="downloadFile"  ref="downloadLink" href="../assets/files/CV.pdf"
           class="font-roboto-16-white bg-transparent main-button"
           id="contact-button"
         >
@@ -61,6 +61,7 @@
 <script setup>
 import TextAnimation from './TextAnimation.vue'
 
+import {ref} from  vue;
 // Coding languages array
 const codingLanguages = [
   'c',
@@ -76,6 +77,18 @@ const codingLanguages = [
 
 // Function to get the icon class for a coding language
 const getIconClass = (language) => `devicon-${language}-plain colored`
+
+const downloadLink = ref(null);
+
+const  downloadFile = () => {
+  console.log('Downloading...');
+  // Access the ref's value
+  console.log(downloadLink.value.href);
+  // Trigger a click on the link (or do anything else you need)
+  downloadLink.value.click();
+};
+
+
 </script>
 
 <style scoped>
