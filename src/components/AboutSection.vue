@@ -46,13 +46,13 @@
         </p>
         <br/>
         <!-- Download CV button -->
-        <a
-          @click.prevent="downloadFile"  ref="downloadLink" href="../assets/files/CV.pdf"
+        <button
+          @click.prevent="downloadFile" 
           class="font-roboto-16-white bg-transparent main-button"
           id="contact-button"
         >
           Download CV
-        </a>
+      </button>
       </div>
     </div>
   </section>
@@ -61,8 +61,7 @@
 <script setup>
 import TextAnimation from './TextAnimation.vue'
 
-import {ref} from "vue";
-// Coding languages array
+
 const codingLanguages = [
   'c',
   'tailwindcss',
@@ -73,23 +72,34 @@ const codingLanguages = [
   'vuejs',
   'django',
   'magento'
-]
+];
 
-// Function to get the icon class for a coding language
-const getIconClass = (language) => `devicon-${language}-plain colored`
-
-const downloadLink = ref(null);
-
-const  downloadFile = () => {
+const getIconClass = (language) => `devicon-${language}-plain colored`;
+const downloadFile = async () => {
   console.log('Downloading...');
-  // Access the ref's value
-  console.log(downloadLink.value.href);
-  // Trigger a click on the link (or do anything else you need)
-  downloadLink.value.click();
+
+  // Fetch the file content
+  const response = await fetch('../../src/assets/files/CV.pdf');
+  const blob = await response.blob();
+
+  // Create a temporary link element
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(blob);
+  link.download = 'CV.pdf';
+
+  // Append the link to the document
+  document.body.appendChild(link);
+
+  // Trigger a click on the link
+  link.click();
+
+  // Remove the link from the document
+  document.body.removeChild(link);
 };
-
-
 </script>
+
+
+
 
 <style scoped>
 /* Styling for coding languages */
