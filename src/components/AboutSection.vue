@@ -85,41 +85,17 @@ const getIconClass = (language) => `devicon-${language}-plain colored`;
 /**
  * Downloads the CV file.
  */
- const downloadFile = async () => {
+ const downloadFile = () => {
   console.log('Downloading...');
 
   // Construct the full URL to the PDF file
   const pdfUrl = '/src/assets/files/CV.pdf'; // Update with the actual path
 
-  try {
-    // Fetch the file content
-    const response = await fetch(pdfUrl);
-    
-    // Check if the request was successful
-    if (response.ok) {
-      // Get the filename from the Content-Disposition header
-      const filename = response.headers.get('Content-Disposition') || 'download.pdf';
+  // Open the PDF file in a new tab
+  window.open(pdfUrl, '_blank');
+  };
 
-      // Create a temporary link element
-      const link = document.createElement('a');
-      link.href = pdfUrl;
-      link.download = filename;
 
-      // Append the link to the document
-      document.body.appendChild(link);
-
-      // Trigger a click on the link
-      link.click();
-
-      // Remove the link from the document
-      document.body.removeChild(link);
-    } else {
-      console.error('Failed to fetch the file:', response.statusText);
-    }
-  } catch (error) {
-    console.error('An error occurred:', error);
-  }
-};
 
 
 
