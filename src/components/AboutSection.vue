@@ -46,19 +46,21 @@
         </p>
         <br/>
         <!-- Download CV button -->
-        <button
-          @click.prevent="downloadFile" 
+        <a
+          href="assets/CV.pdf"
+          download="CV.pdf"
           class="font-roboto-16-white bg-transparent main-button"
           id="contact-button"
         >
           Download CV
-      </button>
+      </a>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+;
 import TextAnimation from './TextAnimation.vue'
 
 // Array of coding languages for display
@@ -82,30 +84,8 @@ const codingLanguages = [
  */
 const getIconClass = (language) => `devicon-${language}-plain colored`;
 
-/**
- * Downloads the CV file.
- */
- const downloadFile = () => {
-  console.log('Downloading...');
 
-  // Construct the full URL to the PDF file
-  const pdfUrl = '../../src/assets/files/CV.pdf'; // Update with the actual path
 
-  // Create a temporary link element
-  const link = document.createElement('a');
-  link.href = pdfUrl;
-  link.target = '_self'; 
-  link.download = 'CV.pdf';
-
-  // Append the link to the document
-  document.body.appendChild(link);
-
-  // Trigger a click on the link
-  link.click();
-
-  // Remove the link from the document
-  document.body.removeChild(link);
-};
 
 
 
