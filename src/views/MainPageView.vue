@@ -19,9 +19,15 @@
 </template>
 
 <script setup>
-import { ref , watch } from 'vue'
+/**
+ * MainPageView component.
+ * @component
+ * @description This component represents the main view of the application.
+ * It includes various sections like About, Projects, Contact, Source Code, and Footer.
+ */
+import { ref, watch } from 'vue';
 import { useStore } from 'vuex';
-import AboutSection from '../components/AboutSection.vue'
+import AboutSection from '../components/AboutSection.vue';
 import ProjectsSection from '../components/ProjectsSection.vue';
 import ContactSection from '../components/ContactSection.vue';
 import SourceCodeSection from '../components/SourceCodeSection.vue';
@@ -33,7 +39,11 @@ const loaded = ref(false);
 // Get the Vuex store instance
 const store = useStore();
 
-// Watch the "isLoading" getter in the store and update the "loaded" variable accordingly
+/**
+ * Watch the "isLoading" getter in the store and update the "loaded" variable accordingly.
+ * @function
+ * @param {boolean} newValue - The new value of the "isLoading" getter.
+ */
 watch(() => store.getters.isLoading, (newValue) => {
   if (newValue === false) {
     // Set a timeout to simulate a delay before setting the page as loaded
@@ -41,13 +51,16 @@ watch(() => store.getters.isLoading, (newValue) => {
       loaded.value = true;
     }, 2000);
   }
-})
+});
 
 // Export the store instance
-store
+store;
 </script>
 
 <style scoped>
+/**
+ * Scoped styles for the MainPageView component.
+ */
 .main-page {
   position: relative;
   z-index: 1;

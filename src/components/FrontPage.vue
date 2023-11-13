@@ -1,5 +1,5 @@
 <template>
-  <!-- Component markup -->
+ 
   <base-header></base-header>
 
   <div
@@ -8,6 +8,7 @@
     @mousemove="handleMove"
     @touchemove="handleMove"
   >
+   
     <img
       ref="backdropImage"
       :style="{ transform: imageTransform }"
@@ -25,16 +26,37 @@ import BaseHeader from '../UI/BaseHeader.vue'
 import MainBannerView from '../views/MainBannerView.vue'
 
 // Refs
+/**
+ * Reference to the front page element.
+ * @type {Ref<Element>}
+ */
 const frontPage = ref(null)
+/**
+ * Reference to the backdrop image element.
+ * @type {Ref<Element>}
+ */
 const backdropImage = ref(null)
 
 // Array to store positions
+/**
+ * Array to store the positions for the dynamic effect.
+ * @type {Array<{ x: number, y: number }>}
+ */
 const positions = []
 
 // Transform for the backdrop image
+/**
+ * Transform for the backdrop image based on mouse/touch movements.
+ * @type {Ref<string>}
+ */
 const imageTransform = ref('translate(0px, 0px)')
 
 // Event handler for mouse/touch move
+/**
+ * Event handler for mouse and touch move events.
+ * Updates the backdrop image transform based on the movement.
+ * @param {MouseEvent | TouchEvent} e - The mouse or touch event.
+ */
 const handleMove = (e) => {
   let x, y
 
@@ -74,12 +96,18 @@ const handleMove = (e) => {
 <style scoped>
 /* Component-specific styles */
 
+/**
+ * Styles for the front page component.
+ */
 .front-page {
   position: sticky;
   position: -webkit-sticky;
   overflow: hidden;
 }
 
+/**
+ * Styles for the backdrop image.
+ */
 .backdrop-image {
   height: 101%;
   width: 101%;
@@ -88,10 +116,16 @@ const handleMove = (e) => {
   z-index: 1;
 }
 
+/**
+ * Styles for the mask section.
+ */
 .mask-section {
   will-change: auto;
 }
 
+/**
+ * Styles for the mask section before pseudo-element.
+ */
 .mask-section::before {
   content: '';
   position: absolute;

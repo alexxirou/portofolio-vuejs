@@ -61,7 +61,7 @@
 <script setup>
 import TextAnimation from './TextAnimation.vue'
 
-
+// Array of coding languages for display
 const codingLanguages = [
   'c',
   'tailwindcss',
@@ -74,7 +74,17 @@ const codingLanguages = [
   'magento'
 ];
 
+/**
+ * Generates the icon class for a given coding language.
+ *
+ * @param {string} language - The coding language.
+ * @returns {string} - The corresponding icon class.
+ */
 const getIconClass = (language) => `devicon-${language}-plain colored`;
+
+/**
+ * Downloads the CV file.
+ */
 const downloadFile = async () => {
   console.log('Downloading...');
 
@@ -97,9 +107,6 @@ const downloadFile = async () => {
   document.body.removeChild(link);
 };
 </script>
-
-
-
 
 <style scoped>
 /* Styling for coding languages */
@@ -130,6 +137,7 @@ const downloadFile = async () => {
   background-position: right;
   color: black;
 }
+
 /* Styling for the about section */
 #about {
   display: flex;

@@ -27,11 +27,20 @@
 </template>
 
 <script setup>
-import ProjectSlider from '../UI/ProjectSlider.vue'
-import FirstSlide from './FirstSlide.vue'
+/**
+ * ProjectsSection component.
+ * @component
+ * @description This component represents the section of the portfolio that displays various projects.
+ * It includes a ProjectSlider component for showcasing project details and slides.
+ */
+import ProjectSlider from '../UI/ProjectSlider.vue';
+import FirstSlide from './FirstSlide.vue';
 </script>
 
 <style scoped>
+/**
+ * Scoped styles for the ProjectsSection component.
+ */
 /* Styles specific to the #projects section */
 #projects {
   flex-direction: column;

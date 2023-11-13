@@ -1,4 +1,4 @@
-📝 Copy Code ➕ Insert Code
+
 <template>
   <section id="source-code" class="full-screen flex-center">
     <div id="canvas-container">
@@ -88,7 +88,7 @@ export default {
 
   methods: {
     /**
-     * Initialize glitch animation
+     * Initialize glitch animation.
      */
     initGlitch() {
       // Get canvas and context
@@ -128,6 +128,9 @@ export default {
       update(this.lastTime)
     },
 
+    /**
+     * Set canvas dimensions.
+     */
     setCanvasExtents() {
       // Set canvas dimensions
       this.w = document.body.clientWidth
@@ -313,6 +316,10 @@ export default {
         this.trails.splice(trailsToRemove.pop(), 1)
       }
     },
+
+    /**
+     * Spawn new trails based on the density and spawn interval.
+     */
     spawnTrails() {
       // Create an array to store the top trail for each column
       const topTrailPerCol = []
@@ -354,6 +361,9 @@ export default {
 </script>
 
 <style scoped>
+/**
+ * Scoped styles for the SourceCodeSection component.
+ */
 /* Main banner styles */
 .main-banner {
   flex-direction: column;

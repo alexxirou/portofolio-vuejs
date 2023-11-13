@@ -8,6 +8,12 @@
 </template>
 
 <script setup>
+/**
+ * TextMorph component.
+ * @component
+ * @description This component represents a text morphing animation.
+ * It displays two text elements with a morphing effect between them.
+ */
 import { ref, computed, onMounted } from 'vue';
 
 // Define an array of texts
@@ -58,6 +64,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/**
+ * Scoped styles for the TextMorph component.
+ */
 .text {
   position: absolute;
   width: 100%;

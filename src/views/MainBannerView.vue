@@ -9,6 +9,12 @@
 </template>
 
 <style scoped>
+/**
+ * MainBanner component.
+ * @component
+ * @description This component represents the main banner of the application.
+ * It includes a header title and a button to check out projects.
+ */
 /* Header title styles */
 .header-title {
   font-size: calc(12px + 4.5vw);
