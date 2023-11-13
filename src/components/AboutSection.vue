@@ -85,27 +85,42 @@ const getIconClass = (language) => `devicon-${language}-plain colored`;
 /**
  * Downloads the CV file.
  */
-const downloadFile = async () => {
-  console.log('Downloading...');
+ const downloadFile = async () => {
+  try {
+    console.log('Downloading...');
 
-  // Fetch the file content
-  const response = await fetch('../../src/assets/files/CV.pdf');
-  const blob = await response.blob();
+    // Use an absolute URL for the file
+    const fileUrl = 'src/assets/files/CV.pdf';
 
-  // Create a temporary link element
-  const link = document.createElement('a');
-  link.href = window.URL.createObjectURL(blob);
-  link.download = 'CV.pdf';
+    // Fetch the file content
+    const response = await fetch(fileUrl);
 
-  // Append the link to the document
-  document.body.appendChild(link);
+    if (!response.ok) {
+      throw new Error('Failed to download file');
+    }
 
-  // Trigger a click on the link
-  link.click();
+    const blob = await response.blob();
 
-  // Remove the link from the document
-  document.body.removeChild(link);
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'CV.pdf';
+
+    // Append the link to the document
+    document.body.appendChild(link);
+
+    // Trigger a click on the link
+    link.click();
+
+    // Remove the link from the document
+    document.body.removeChild(link);
+
+    console.log('Download complete!');
+  } catch (error) {
+    console.error('Error downloading file:', error.message);
+  }
 };
+
 </script>
 
 <style scoped>
