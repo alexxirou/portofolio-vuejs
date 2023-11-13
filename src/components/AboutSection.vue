@@ -46,14 +46,13 @@
         </p>
         <br/>
         <!-- Download CV button -->
-        <a
-          href="assets/CV.pdf"
-          download="CV.pdf"
+        <button
+          @click.prevent="downloadFile"
           class="font-roboto-16-white bg-transparent main-button"
           id="contact-button"
         >
           Download CV
-      </a>
+      </button>
       </div>
     </div>
   </section>
@@ -85,7 +84,32 @@ const codingLanguages = [
 const getIconClass = (language) => `devicon-${language}-plain colored`;
 
 
-
+const downloadFile = async () => {
+  try {
+    console.log('Downloading...');
+    // Use an absolute URL for the file
+    const fileUrl = 'assets/CV.pdf';
+    // Fetch the file content
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      throw new Error('Failed to download file');
+    }
+    const blob = await response.blob();
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'CV.pdf';
+    // Append the link to the document
+    document.body.appendChild(link);
+    // Trigger a click on the link
+    link.click();
+    // Remove the link from the document
+    document.body.removeChild(link);
+    console.log('Download complete!');
+  } catch (error) {
+    console.error('Error downloading file:', error.message);
+  }
+};
 
 
 
