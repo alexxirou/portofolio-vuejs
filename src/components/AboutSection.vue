@@ -89,13 +89,23 @@ const getIconClass = (language) => `devicon-${language}-plain colored`;
   console.log('Downloading...');
 
   // Construct the full URL to the PDF file
-  const pdfUrl = '/src/assets/files/CV.pdf'; // Update with the actual path
+  const pdfUrl = '../../src/assets/files/CV.pdf'; // Update with the actual path
 
-  // Open the PDF file in a new tab
-  window.open(pdfUrl, '_blank');
-  };
+  // Create a temporary link element
+  const link = document.createElement('a');
+  link.href = pdfUrl;
+  link.target = '_self'; 
+  link.download = 'CV.pdf';
 
+  // Append the link to the document
+  document.body.appendChild(link);
 
+  // Trigger a click on the link
+  link.click();
+
+  // Remove the link from the document
+  document.body.removeChild(link);
+};
 
 
 
