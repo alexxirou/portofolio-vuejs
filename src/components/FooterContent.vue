@@ -17,7 +17,7 @@
     </template>
    
     <template #other> 
-      <p>Based on LOKKEE STUDIOS portfolio model:<a href="https://www.lokkeestudios.com"> https://www.lokkeestudios.com/</a></p>
+      <address>Based on LOKKEE STUDIOS portfolio model:<a href="https://www.lokkeestudios.com"> https://www.lokkeestudios.com/</a></address>
     </template>
   </BaseFooter>
 </template>

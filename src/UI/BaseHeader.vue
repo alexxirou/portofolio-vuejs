@@ -1,6 +1,6 @@
 <template>
   <!-- Fixed bar container -->
-  <div class="fixed-bar flex-center">
+  <header class="fixed-bar flex-center">
     <!-- Collapse container -->
     <div class="collapse">
       <!-- Toggle Menu component -->
@@ -46,7 +46,7 @@
         Contact
       </base-button>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup>

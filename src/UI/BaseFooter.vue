@@ -1,6 +1,6 @@
 <template>
   <!-- Footer section -->
-  <section class="footer">
+  <footer class="footer">
     <!-- Social icons -->
     <div class="footer-row">
       <slot name="social-icons"></slot>
@@ -13,7 +13,7 @@
     <div class="footer-row">
       <slot name="other"></slot>
     </div>
-  </section>
+  </footer>
 </template>
 
 <style>
