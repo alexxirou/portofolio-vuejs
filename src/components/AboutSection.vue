@@ -1,5 +1,5 @@
 <template>
-  <!-- About section -->
+<!-- About section -->
   <section class="flex  flex-col md:flex-row align-middle justify-center w-full h-[100vh] max-md:flex-wrap max-md:text-center" id="about">
     <!-- Left section with image -->
     <div class="flex flex-row  w-screen select-none justify-center items-center md:w-1/3">
@@ -57,12 +57,12 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 import TextAnimation from './TextAnimation.vue'
 
 // Array of coding languages for display
-const codingLanguages = [
+const codingLanguages: string[] = [
   'c',
   'scss',
   'tailwindcss',
@@ -82,34 +82,36 @@ const codingLanguages = [
  * @param {string} language - The coding language.
  * @returns {string} - The corresponding icon class.
  */
-const getIconClass = (language) => `devicon-${language}-plain colored`;
+const getIconClass = (language: string): string => `devicon-${language}-plain colored`;
 
 
-const downloadFile = async () => {
+const downloadFile: () => void = async (): Promise<void> => {
   try {
-    console.log('Downloading...');
+    console.log('Downloading...')
     // Use an absolute URL for the file
-    const fileUrl = 'assets/CV.pdf';
+    const fileUrl: string = 'assets/CV.pdf';
     // Fetch the file content
-    const response = await fetch(fileUrl);
+    const response: Response = await fetch(fileUrl);
     if (!response.ok) {
       throw new Error('Failed to download file');
     }
-    const blob = await response.blob();
+    const blob: Blob = await response.blob();
     // Create a temporary link element
-    const link = document.createElement('a');
+    const link: HTMLAnchorElement = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
     link.download = 'CV.pdf';
     // Append the link to the document
     document.body.appendChild(link);
     // Trigger a click on the link
-    link.click();
+    link.click()
     // Remove the link from the document
-    document.body.removeChild(link);
-    console.log('Download complete!');
-  } catch (error) {
-    console.error('Error downloading file:', error.message);
-  }
+    document.body.removeChild(link)
+    console.log('Download complete!')
+  } 
+  catch (error) {
+  if(error instanceof Error)  
+  console.error('Error downloading file:', error.message || error);
+}
 };
 
 

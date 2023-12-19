@@ -89,16 +89,21 @@
   </transition>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import axios from 'axios';
 
 // Define a reactive ref for the form data
-const formData = ref({
+const formData = ref<{
+  name: string;
+  email: string;
+  message: string;
+}>({
   name: '',
   email: '',
   message: '',
 });
+
 
 // Define reactive refs for tracking the email sending status
 const notSent = ref(true);
@@ -112,22 +117,30 @@ const responseData = ref(null);
  * @returns {Promise} - A promise that resolves to the response from the server.
  * @throws {Error} - If an error occurs during the request.
  */
-const sendEmail = async (data) => {
+const sendEmail = async(data: object): Promise<any> => {
   try {
     // Get the CSRF token from the document
-    const csrfToken = document.querySelector("[name=csrf-token]").content;
+   const metaTag = document.querySelector("[name=csrf-token]");
+    if (metaTag instanceof HTMLMetaElement) {
+      const csrfToken: string = metaTag.content;
 
-    // Set the CSRF token in the request headers
-    axios.defaults.headers.common["X-CSRF-Token"] = csrfToken;
 
-    // Send a POST request to the server to send the email
-    const response = await axios.post("https://verbumsap.xyz/contact_mailer/send_email", data);
+
+      // Set the CSRF token in the request headers
+
+      axios.defaults.headers.common["X-CSRF-Token"] = csrfToken;
+    } else {
+      throw new Error("CSRF token not found");
+    }
+      // Send a POST request to the server to send the email
+      const response = await axios.post("https://verbumsap.xyz/contact_mailer/send_email", data);
     
-    // Log the success message and update the response data ref
-    console.log(response.data.message); // Email sent successfully
-    responseData.value = response.data.message;
+      // Log the success message and update the response data ref
+      console.log(response.data.message); // Email sent successfully
+      responseData.value = response.data.message;
 
-    return response;
+      return response;
+    
   } catch (error) {
     // Log and rethrow the error to be caught in the calling function
     console.error(error);
@@ -138,9 +151,9 @@ const sendEmail = async (data) => {
 /**
  * Submits the form data by sending an email.
  */
-const submitForm = async () => {
+const submitForm = async (): Promise<void> => {
   // Create a FormData object and append the form data to it
-  const formDataObj = new FormData();
+  const formDataObj: FormData = new FormData();
   formDataObj.append('name', formData.value.name);
   formDataObj.append('email', formData.value.email);
   formDataObj.append('message', formData.value.message);
@@ -163,7 +176,7 @@ const submitForm = async () => {
 /**
  * Resets the form fields and sets the notSent status to true.
  */
-const resetForm = () => {
+const resetForm = (): void => {
   formData.value = { name: '', email: '', message: '' };
   notSent.value = true;
   success.value = false;

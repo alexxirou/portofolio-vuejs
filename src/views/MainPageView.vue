@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /**
  * MainPageView component.
  * @component
@@ -34,7 +34,7 @@ import SourceCodeSection from '../components/SourceCodeSection.vue';
 import FooterContent from '../components/FooterContent.vue';
 
 // Create a reactive variable to track if the page is loaded
-const loaded = ref(false);
+const loaded = ref<boolean>(false);
 
 // Get the Vuex store instance
 const store = useStore();
@@ -44,7 +44,7 @@ const store = useStore();
  * @function
  * @param {boolean} newValue - The new value of the "isLoading" getter.
  */
-watch(() => store.getters.isLoading, (newValue) => {
+watch(() => store.getters.isLoading, (newValue:boolean) => {
   if (newValue === false) {
     // Set a timeout to simulate a delay before setting the page as loaded
     setTimeout(() => {

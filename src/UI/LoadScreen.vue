@@ -14,18 +14,18 @@
   </transition>
 </template>
 
-<script setup>
-import { computed, onMounted } from 'vue'
+<script setup lang="ts">
+import { Ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 
 // Get the Vuex store instance
-const store = useStore()
+const store= useStore()
 
 // Computed property to check if the app is currently loading
-const isLoading = computed(() => store.getters.isLoading)
+const isLoading: Ref<boolean> = computed(() => store.getters.isLoading)
 
 // Computed property to determine the class for the transition when the loading is done
-const isLoaded = computed(() => (store.getters.isLoading ? '' : 'loaded'))
+const isLoaded: Ref<string> = computed(() => (store.getters.isLoading ? '' : 'loaded'))
 
 // Triggered when the component is mounted
 onMounted(() => {

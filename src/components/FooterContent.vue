@@ -22,7 +22,7 @@
   </BaseFooter>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import BaseFooter from '../UI/BaseFooter.vue'
 import { RouterLink } from 'vue-router'
 
@@ -33,7 +33,14 @@ import { ref } from 'vue'
  * Array of social icons with their names, links, and corresponding icon classes.
  * @type {Ref<Array<{ name: string, link: string, iconClass: string }>>}
  */
-const socialIcons = ref([
+
+interface SocialIcon {
+  name: string;
+  link: string;
+  iconClass: string;
+}
+
+const socialIcons=ref<SocialIcon[]>([
   { name: 'GitHub', link: 'https://github.com/alexxirou', iconClass: 'fa fa-github' },
   { name: 'LinkedIn', link: 'https://www.linkedin.com/in/alexxirou', iconClass: 'fa fa-linkedin' },
   { name: 'Facebook', link: 'https://facebook', iconClass: 'fa fa-facebook' },
@@ -49,7 +56,13 @@ const socialIcons = ref([
  * Array of footer links with their IDs, URLs, and corresponding text.
  * @type {Ref<Array<{ id: number, url: object, text: string }>>}
  */
-const footerLinks = ref([
+interface FooterLink {
+  id: number;
+  url: object;
+  text: string;
+}
+
+const footerLinks= ref<FooterLink[]>([
   { id: 1, url: {name:'about'}, text: 'About' },
   { id: 2, url: {name:'source-code'}, text: 'Source code' },
   { id: 3, url: {name:'contact'}, text: 'Contact' },

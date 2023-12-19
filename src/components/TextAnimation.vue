@@ -17,38 +17,38 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /**
  * TextMorph component.
  * @component
  * @description This component represents a text morphing animation.
  * It displays two text elements with a morphing effect between them.
  */
-import { ref, computed, onMounted } from 'vue'
+import { Ref,ref, computed, onMounted } from 'vue'
 
 // Define an array of texts
-const texts = ref(['Front-end', 'Back-end', 'Server-setup', 'Networking'])
+const texts: Ref<string[]> = ref(['Front-end', 'Back-end', 'Server-setup', 'Networking'])
 // Initialize the text index
-const textIndex = ref(0)
+const textIndex: Ref<number> = ref(0)
 // Initialize the morph value
-let morph = ref(0)
+let morph: Ref<number> = ref(0)
 // Initialize the time value
-let time = ref(new Date())
+let time: Ref<Date> = ref(new Date())
 
 // Compute the style for the first text element
-const text1Style = computed(() => ({
+const text1Style: Ref<Record<string, string>> = computed((): Record<string, string> => ({
   filter: `blur(${Math.min(8 * morph.value, 8)}px)`,
   opacity: `${Math.pow(1 - morph.value, 0.4) * 100}%`
 }))
 
 // Compute the style for the second text element
-const text2Style = computed(() => ({
+const text2Style: Ref<Record<string, string>> = computed((): Record<string, string> => ({
   filter: `blur(${Math.min(8 * (1 - morph.value), 8)}px)`,
   opacity: `${Math.pow(morph.value, 0.4) * 100}%`
 }))
 
 // Perform morphing animation
-const doMorph = (dt) => {
+const doMorph = (dt: number): void => {
   morph.value += dt * 0.65 // Adjusted increment step
   if (morph.value >= 1.5) {
     textIndex.value++
@@ -57,11 +57,13 @@ const doMorph = (dt) => {
 }
 
 // Animate the morphing
-const animate = () => {
+const animate: () => void = (): void => {
   requestAnimationFrame(animate)
 
-  let newTime = new Date()
-  let dt = (newTime - time.value) / 1000
+  let newTime = new Date() 
+  let timeValue = time.value instanceof Date ? time.value : new Date(); // Ensure time.value is a Date
+
+  let dt: number = (newTime.getTime() - timeValue.getTime()) / 1000; // Calculating time difference in seconds / 1000
   time.value = newTime
 
   doMorph(dt)

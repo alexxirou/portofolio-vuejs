@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
 
 /**
  * Create a Vuex store
@@ -6,7 +6,7 @@ import { createStore } from 'vuex';
  */
 const store = createStore({
   state: {
-    isLoading: true, // Represents the loading state
+    isLoading: true // Represents the loading state
   },
   mutations: {
     /**
@@ -14,9 +14,11 @@ const store = createStore({
      * @param {object} state - The Vuex state object
      * @param {boolean} value - The new loading state value
      */
-    setLoading(state, value) {
-      state.isLoading = value;
-    },
+    setLoading(state: object, value: boolean): void {
+      if ('isLoading' in state) {
+        state.isLoading = value
+      }
+    }
   },
   actions: {
     /**
@@ -24,9 +26,9 @@ const store = createStore({
      * @param {object} context - The Vuex context object
      * @param {boolean} value - The new loading state value
      */
-    toggleLoading({ commit }, value) {
-      commit('setLoading', value);
-    },
+    toggleLoading({ commit }: { commit: Function }, value: boolean) {
+      commit('setLoading', value)
+    }
   },
   getters: {
     /**
@@ -34,10 +36,13 @@ const store = createStore({
      * @param {object} state - The Vuex state object
      * @returns {boolean} The loading state
      */
-    isLoading(state) {
-      return state.isLoading;
-    },
-  },
-});
+    isLoading(state: object): boolean {
+      if ('isLoading' in state && typeof state.isLoading === 'boolean') {
+        return state.isLoading
+      }
+      return false
+    }
+  }
+})
 
-export default store;
+export default store

@@ -5,13 +5,14 @@
   </router-link>
 </template>
 
-<script setup>
-import { computed } from 'vue';
-import { RouterLink } from 'vue-router';
+<script setup lang="ts">
+import { Ref, computed } from 'vue';
+import { RouterLink,  RouteLocationRaw } from 'vue-router';
 
-const props = defineProps({
+const props= defineProps({
   url: {
-    type: Object,
+    type: Object as () => RouteLocationRaw,
+    default: () => '',
     required: false,
   },
   styleType: {
@@ -21,7 +22,7 @@ const props = defineProps({
 });
 
 // Computes the class for the button based on the styleType prop
-const buttonClass = computed(() => {
+const buttonClass: Ref<string> = computed((): string => {
   return `${props.styleType}`;
 });
 </script>

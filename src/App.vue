@@ -5,7 +5,7 @@
   <main-page-view></main-page-view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /**
  * Main application component.
  * @component

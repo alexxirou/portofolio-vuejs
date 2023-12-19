@@ -35,25 +35,26 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
 // Define reactive variables
-const slides = ref([]) // Holds the slide elements
-const dots = ref([]) // Holds the dot elements
-let curSlide = ref(0) // Holds the index of the current slide
-const maxSlide = ref(0) // Holds the total number of slides
+const slides = ref<HTMLElement[]>([]) // Holds the slide elements
+const dots = ref<number[]>([]) // Holds the dot elements
+let curSlide = ref<number>(0) // Holds the index of the current slide
+const maxSlide =ref<number>(0)// Holds the total number of slides
 
 // Create dots for each slide
-const createDots = () => {
+// Create dots for each slide
+const createDots = (): void => {
   dots.value = Array.from({ length: slides.value.length }, (_, i) => i)
 }
 
 // Go to a specific slide
-const goToSlide = (slide) => {
+const goToSlide = (slide: number) => {
   slides.value.forEach(
-    (_, i) => (slides.value[i].style.transform = `translateX(${100 * (i - slide)}%)`)
-  )
+    (_, i) => slides.value[i].style.transform = `translateX(${100 * (i - slide)}%)`)
+  
   curSlide.value = slide
   activateDot()
 }
@@ -72,21 +73,25 @@ const prevSlide = () => {
   goToSlide(curSlide.value)
 }
 
-// Activate the dot corresponding to the current slide
+// Activate the dot corresponding to the current slide// Activate the dot corresponding to the current slide
 const activateDot = () => {
   dots.value.forEach((_, index) => {
-    if (dots.value[index]) {
-      dots.value[index].classList.remove('dots__dot--active')
+    const dot = dots.value[index];
+    if (dot && typeof dot !== 'number') {
+      (dot as HTMLElement).classList.remove('dots__dot--active');
     }
-  })
-  if (dots.value[curSlide.value]) {
-    dots.value[curSlide.value].classList.add('dots__dot--active')
+  });
+
+  const currentDot = dots.value[curSlide.value];
+  if (currentDot && typeof currentDot !== 'number') {
+    (currentDot as HTMLElement).classList.add('dots__dot--active');
   }
-}
+};
 
 // Run the following code after the component is mounted
 onMounted(() => {
-  slides.value = document.querySelectorAll('.slide') // Get the slide elements
+  slides.value = [...(document.querySelectorAll<HTMLElement>('.slide'))];
+
   maxSlide.value = slides.value.length // Set the total number of slides
   createDots() // Create dots for each slide
   activateDot() // Activate the dot corresponding to the current slide

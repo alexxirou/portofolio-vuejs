@@ -40,7 +40,7 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ToggleMenu from './ToggleMenu.vue'
 </script>
 
