@@ -1,8 +1,8 @@
 <template>
   <!-- Projects section -->
-  <section class="bg-black full-screen flex-center" id="projects">
+  <section class="bg-black h-[100vh]  min-h-[1200px] flex flex-col justify-center items-center align-middle relative m-0  " id="projects">
     <!-- Section title -->
-    <h1 class="font-roboto-16-white" style="font-size: 24px; color:#008b8b;">
+    <h1 class="font-sans text-3xl pb-4 text-[#008b8b]">
       Projects
     </h1>
 
@@ -36,14 +36,3 @@
 import ProjectSlider from '../UI/ProjectSlider.vue';
 import FirstSlide from './FirstSlide.vue';
 </script>
-
-<style scoped>
-/**
- * Scoped styles for the ProjectsSection component.
- */
-/* Styles specific to the #projects section */
-#projects {
-  flex-direction: column;
-  min-height: 1200px;
-}
-</style>

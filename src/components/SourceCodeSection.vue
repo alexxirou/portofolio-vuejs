@@ -1,19 +1,20 @@
 
 <template>
-  <section id="source-code" class="full-screen flex-center">
-    <div id="canvas-container">
-      <canvas id="canvas" ref="canvas"></canvas>
+  <section id="source-code" class="flex  flex-col w-full h-[100vh] relative">
+    <div class="h-[100vh] w-full " id="canvas-container" >
+      <canvas  class="w-1/2 h-[100vh]  absolute left-1/2" id="canvas" ref="canvas"></canvas>
     </div>
-    <div class="half-section main-banner bg-transparent flex-center" id="sourcecode">
-      <div id="sc-container">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black mix-blend-multiply"></div>
+    <div class=" h-[50vh] w-full will-change-auto flex flex-col bg-transparent justify-center relative" id="sourcecode">
+      <div class="h-[50vh] w-full items-center  justify-center flex flex-col gap-6 z-10" id="sc-container">
         <!-- Title -->
-        <h1 class="front font-roboto-16-white" style="color: #008b8b; font-size: 24px">
+        <h1 class="font-sans text-[#008b8b] text-2xl top-1/3">
           SOURCE CODE
         </h1>
         <!-- Description -->
         <p
-          class="front font-roboto-16-white"
-          style="text-align: center; font-size: calc(10px + 0.5vw)"
+          class="font-sans text-white text-center"
+          style="font-size: calc(10px + 0.5vw)"
         >
           Embark on an extraordinary journey into the heart of this portfolio's creation,<br />
           where every line of code was meticulously crafted with passion and dedication. <br />
@@ -25,13 +26,15 @@
         </p>
         <!-- Button -->
         <a
-          class="front button-link"
-          style="background-color: #8b0000; border-color: #8b0000; width: fit-content"
+          class="button-link w-fit"
+          style="background-color: #8b0000; border-color: #8b0000;"
           href="https://github.com/alexxirou/portofolio-JS-CSS"
         >
           Show me
         </a>
+           
       </div>
+   
     </div>
   </section>
 </template>
@@ -360,54 +363,4 @@ export default {
 }
 </script>
 
-<style scoped>
-/**
- * Scoped styles for the SourceCodeSection component.
- */
-/* Main banner styles */
-.main-banner {
-  flex-direction: column;
-}
 
-/* Canvas container styles */
-#canvas-container {
-  height: 100%;
-}
-
-/* Canvas styles */
-#canvas {
-  width: 50%;
-  height: 100vh;
-  left: 50%;
-  position: absolute;
-}
-
-/* Half section styles */
-.half-section {
-  will-change: auto;
-  position: relative;
-  width: 100vw;
-  height: 100%;
-}
-
-/* Half section background gradient */
-.half-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-  z-index: 1;
-}
-
-/* SC container styles */
-#sc-container {
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  gap: 20px;
-  align-items: center;
-}
-</style>

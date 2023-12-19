@@ -1,0 +1,48 @@
+@import 'fonts.css';
+/* tailwind.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Set smooth scroll behavior for html and body */
+
+.main-button {
+  @apply py-2  text-white  font-semibold  text-base no-underline bg-transparent bg-no-repeat active:opacity-5 font-sans ;
+  background-position: top 80% left 50%;
+  background-image: linear-gradient(90deg, white, white);
+  /* underline color */
+  background-size: 0 2px;
+  /* vertical size of underline */
+  transition: background-size 0.3s ease-in;
+}
+
+.main-button:hover {
+  cursor: pointer;
+  background-position: top 80% left 50%;
+  background-size: 100% 2px;
+}
+
+.button-link {
+  @apply inline-block text-white text-lg leading-none p-4 border-2 border-white shadow transition-all duration-300 ease-in-out mb-auto z-10 active:opacity-5 font-sans tracking-[2px] hover:bg-right hover:text-black hover:tracking-[5px];
+  background: linear-gradient(white 0 0) left / var(--p, 0) no-repeat;
+}
+
+.button-link:hover {
+  --p: 100%;
+}
+
+/* Styles for the contact button */
+.main-button-style-ex {
+  background: linear-gradient(white 0 0) left / var(--p, 0) no-repeat;
+  transition:
+    0.4s,
+    background-position 0s;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+.main-button-style-ex:hover {
+  text-decoration: drop 1.2s ease-in-out infinite;
+  --p: 100%;
+  background-position: right;
+  color: black;
+}

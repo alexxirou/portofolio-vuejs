@@ -3,21 +3,21 @@
   <BaseFooter>
    
     <template #social-icons>
-      <a v-for="icon in socialIcons" :key="icon.name" :href="icon.link">
-        <i :class="icon.iconClass"></i>
+      <a v-for="icon in socialIcons" :key="icon.name" :href="icon.link" class="decoration-none text-gray transition duration-500 hover:text-white " >
+        <i :class="icon.iconClass" class="text-[2em] md:my-1 mx-3 "></i>
       </a>
     </template>
     
     <template #navigation>
-      <ul>
-        <li v-for="link in footerLinks" :key="link.id">
-          <RouterLink :to="link.url" class="footer-link">{{ link.text }}</RouterLink>
+      <ul class="block text-center md:w-full">
+        <li v-for="link in footerLinks" :key="link.id" class="block text-center md:inline mx-3 my-3">
+          <RouterLink :to="link.url" class="decoration-none text-gray transition duration-500 hover:text-white ">{{ link.text }}</RouterLink>
         </li>
       </ul>
     </template>
    
     <template #other> 
-      <address>Based on LOKKEE STUDIOS portfolio model:<a href="https://www.lokkeestudios.com"> https://www.lokkeestudios.com/</a></address>
+      <address>Based on LOKKEE STUDIOS portfolio model:<a class="decoration-none text-gray transition duration-500 hover:text-white" href="https://www.lokkeestudios.com"> https://www.lokkeestudios.com/</a></address>
     </template>
   </BaseFooter>
 </template>
@@ -57,64 +57,3 @@ const footerLinks = ref([
 
 </script>
 
-<style scoped>
-/* Scoped styles for the component */
-/**
- * Styles for anchor tags within the component.
- */
-a {
-  text-decoration: none;
-  color: gray;
-  transition: 0.5s;
-}
-
-/**
- * Hover styles for anchor tags within the component.
- */
-a:hover {
-  color: #fff;
-}
-
-/**
- * Styles for unordered lists within the component.
- */
-ul {
-  width: 100%;
-  padding: 0;
-}
-
-/**
- * Styles for list items within the component.
- */
-li {
-  display: inline-block;
-  margin: 1% 30px;
-}
-
-/**
- * Styles for icon elements within the component.
- */
-i {
-  font-size: 2em;
-  margin: 0 1%;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 767px) {
-  /**
-   * Responsive styles for list items on mobile devices.
-   */
-  ul li{
-    display:block;
-    margin:10px 0px;
-    text-align:center;
-  }
-  /**
-   * Responsive styles for icon elements on mobile devices.
-   */
-  a i{
-    margin:0% 3%;
-  }
-}
-
-</style>

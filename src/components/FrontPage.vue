@@ -4,7 +4,7 @@
 
   <div
     ref="frontPage"
-    class="front-page full-screen bg-transparent"
+    class="overflow-hidden min-h-screen sticky bg-black "
     @mousemove="handleMove"
     @touchemove="handleMove"
   >
@@ -12,7 +12,7 @@
     <img
       ref="backdropImage"
       :style="{ transform: imageTransform }"
-      class="backdrop-image mask-section fixed-top"
+      class="inset-0  h-[105%] w-full fixed top-0"
       src="../assets/images/future-grid.webp"
       alias="future-grid"
     />
@@ -94,45 +94,9 @@ const handleMove = (e) => {
 </script>
 
 <style scoped>
-/* Component-specific styles */
 
-/**
- * Styles for the front page component.
- */
-.front-page {
-  position: sticky;
-  position: -webkit-sticky;
-  overflow: hidden;
-}
 
-/**
- * Styles for the backdrop image.
- */
-.backdrop-image {
-  height: 101%;
-  width: 101%;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-}
-
-/**
- * Styles for the mask section.
- */
-.mask-section {
-  will-change: auto;
-}
-
-/**
- * Styles for the mask section before pseudo-element.
- */
-.mask-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.gradient-mask {
   background-image: linear-gradient(
     90deg,
     transparent 5%,
@@ -140,6 +104,5 @@ const handleMove = (e) => {
     rgba(0, 0, 0, 1) 70%,
     transparent 95%
   );
-  z-index: 1;
 }
 </style>

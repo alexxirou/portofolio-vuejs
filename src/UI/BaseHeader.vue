@@ -1,46 +1,37 @@
 <template>
   <!-- Fixed bar container -->
-  <header class="fixed-bar flex-center">
+  <header
+    class="fixed w-full top-0 h-20 z-10 justify-evenly max-md:justify-around max-md:gap-[40%] gap-[20%] flex items-center backdrop-blur-md"
+  >
     <!-- Collapse container -->
-    <div class="collapse">
+    <div class="flex items-center">
       <!-- Toggle Menu component -->
       <toggle-menu></toggle-menu>
       <!-- Menu list -->
-      <ul class="menu bg-transparent font-roboto-16-white">
+      <ul
+        class=" menu flex text-center list-none md:flex-row md:relative md:top-0 md:bg-transparent font-sans  text-white text-3xl md:gap-[20%] left-0 flex-col  absolute top-20  bg-[#191919)]  "
+      >
         <!-- About menu item -->
-        <li>
-          <base-button
-            class="font-roboto-16-white"
-            styleType="main-button"
-            :url="{ name: 'about' }"
-          >
-            ABOUT
-          </base-button>
+        <li class="max-md:bg-[#191919]">
+          <base-button styleType="main-button" :url="{ name: 'about' }"> ABOUT </base-button>
         </li>
         <!-- Projects menu item -->
-        <li>
-          <base-button
-            class="font-roboto-16-white"
-            styleType="main-button"
-            :url="{ name: 'projects' }"
-          >
-            PROJECTS
-          </base-button>
+        <li class="max-md:bg-[#191919] ">
+          <base-button styleType="main-button" :url="{ name: 'projects' }"> PROJECTS </base-button>
         </li>
       </ul>
     </div>
     <!-- Content wrapper -->
-    <div class="content-wrapper flex-center">
+    <div class="absolute m-[auto] flex ">
       <!-- Author name -->
-      <p class="font-roboto-16-white">Alexandros Xirouchakis</p>
+      <p class="text-white text-md font-sans">Alexandros Xirouchakis</p>
     </div>
     <!-- Header buttons container -->
     <div class="header-buttons-container">
       <!-- Contact button -->
       <base-button
-        class="bg-transparent font-roboto-16-white"
-        styleType="main-button"
-        id="contact-button"
+        class="border-white border-solid border-[3px] h-[50px] p-3 text-lg text-white"
+        styleType="main-button-style-ex"
         :url="{ name: 'contact' }"
       >
         Contact
@@ -53,87 +44,3 @@
 import ToggleMenu from './ToggleMenu.vue'
 </script>
 
-<style>
-  /* Styles for the fixed navigation bar */
-  .fixed-bar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 80px;
-    z-index: 999;
-    justify-content: space-evenly;
-    gap: 40%;
-    backdrop-filter: blur(10px);
-  }
-
-  /* Styles for the contact button */
-  #contact-button {
-    border-color: white;
-    border-style: groove;
-    padding: 12px;
-    color: white;
-    background: linear-gradient(white 0 0) left / var(--p, 0) no-repeat;
-    transition: 0.4s, background-position 0s;
-    height: 50px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-    font-size: 18px;
-  }
-
-  #contact-button:hover {
-    text-decoration: drop 1.2s ease-in-out infinite;
-    --p: 100%;
-    background-position: right;
-    color: black;
-  }
-
-  /* Styles for the menu */
-  .menu {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    padding: 0;
-    font-size: 30px;
-    gap: 20%;
-  }
-
-  .menu > li > a {
-    text-decoration: none;
-    color: white;
-  }
-
-  /* Styles for the content wrapper */
-  .content-wrapper {
-    position: absolute;
-    margin: auto;
-  }
-
-  /* Media query for smaller screens */
-  @media (max-width: 767px) {
-    /* Styles for the menu on smaller screens */
-    .menu {
-      position: absolute;
-      top: 50px;
-      left: 0;
-      flex-direction: column;
-      width: 100%;
-      padding: 0;
-      background-color: rgba(25, 25, 25, 1);
-      z-index: 1;
-    }
-
-    .menu > li {
-      background-color: rgba(25, 25, 25, 1);
-    }
-
-    .menu > li:not(:last-child) {
-      border-bottom: 1px solid #444;
-    }
-
-    /* Styles for the fixed bar on smaller screens */
-    .fixed-bar {
-      justify-content: space-around;
-      gap: 60%;
-    }
-  }
-</style>

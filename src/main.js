@@ -8,6 +8,8 @@ import App from './App.vue';
 import store from './store/index.js';
 import BaseButton from './UI/BaseButton.vue';
 import router from './router/index.js';
+import './assets/styles/base.css';
+
 
 /**
  * Create the Vue app.

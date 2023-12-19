@@ -1,38 +1,18 @@
 <template>
   <!-- Footer section -->
-  <footer class="footer">
+  <footer class="bg-[#0f0f0f]  py-[40px] font-play text-center relative">
     <!-- Social icons -->
-    <div class="footer-row">
+    <div class="w-full my-7 text-gray-500 text-[0.8em] ">
       <slot name="social-icons"></slot>
     </div>
     <!-- Navigation links -->
-    <div class="footer-row">
+    <div class="w-full my-7 text-gray-500 text-[0.8em] ">
       <slot name="navigation"></slot>
     </div>
     <!-- Other content -->
-    <div class="footer-row">
+    <div class="w-full my-7 text-gray-500 text-[0.8em] ">
       <slot name="other"></slot>
     </div>
   </footer>
 </template>
 
-<style>
-.footer {
-  /* Footer background */
-  background: rgba(15, 15, 15, 1);
-  padding: 30px 0px;
-  font-family: 'Play', sans-serif;
-  text-align: center;
-  position: relative;
-}
-
-.footer .footer-row {
-  /* Footer rows */
-  width: 100%;
-  margin: 1% 0%;
-  padding: 0.6% 0%;
-  color: gray;
-  font-size: 0.8em;
-  padding: 0;
-}
-</style>

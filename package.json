@@ -10,6 +10,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@vue/typescript": "^1.8.20",
     "axios": "^1.6.1",
     "save": "^2.9.0",
     "serve": "^14.2.1",
@@ -23,11 +25,16 @@
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/eslint-config-prettier": "^8.0.0",
-    
-    "eslint": "^8.49.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.17.0",
     "fs": "^0.0.1-security",
+    "postcss": "^8.4.32",
+    "postcss-import": "^15.1.0",
+    "postcss-loader": "^7.3.3",
     "prettier": "^3.0.3",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.6",
     "typescript": "^5.2.2",
     "vite": "^4.4.11"
   }

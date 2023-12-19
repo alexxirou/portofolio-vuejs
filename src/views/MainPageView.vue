@@ -1,6 +1,6 @@
 <template>
   <!-- Main page container -->
-  <div v-if="loaded" class="main-page bg-black">
+  <div v-if="loaded" class="relative z-[1] bg-black scroll-smooth">
     <!-- About section component -->
     <about-section></about-section>
 
@@ -57,12 +57,3 @@ watch(() => store.getters.isLoading, (newValue) => {
 store;
 </script>
 
-<style scoped>
-/**
- * Scoped styles for the MainPageView component.
- */
-.main-page {
-  position: relative;
-  z-index: 1;
-}
-</style>

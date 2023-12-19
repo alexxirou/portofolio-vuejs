@@ -1,19 +1,19 @@
 <template>
   <!-- About section -->
-  <section class="flex-center full-screen" id="about">
+  <section class="flex  flex-col md:flex-row align-middle justify-center w-full h-[100vh] max-md:flex-wrap max-md:text-center" id="about">
     <!-- Left section with image -->
-    <div class="right-section flex-center">
-      <img class="max-image" src="../assets/images/funny.jpg" />
+    <div class="flex flex-row  w-screen select-none justify-center items-center md:w-1/3">
+      <img class=" w-full" src="../assets/images/funny.jpg" />
     </div>
     <!-- Right section with text content -->
-    <div class="right-section flex-center">
-      <div class="text-container" >
-        <h1 class="font-roboto-16-white" style="color: #008b8b; font-size: 24px;">ABOUT</h1>
-        <div class="title flex-center;">
+    <div class=" flex flex-row  w-screen  items-center justify-center md:w-1/3 ">
+      <div >
+        <h1 class="font-md font-sans text-2xl  text-[#008b8b]">ABOUT</h1>
+        <div class="flex flex-col justify-center items-center md:items-start">
           <!-- Text animation component -->
           <text-animation></text-animation>
           <!-- Coding languages icons -->
-          <div class="coding-languages">
+          <div class="text-[50px]">
             <i
               v-for="(language, index) in codingLanguages"
               :key="index"
@@ -22,7 +22,7 @@
           </div>
         </div>
         <!-- SVG filters -->
-        <svg id="filters">
+        <svg  class="hidden" id="filters">
           <defs>
             <filter id="threshold">
               <feColorMatrix
@@ -37,7 +37,7 @@
           </defs>
         </svg>
         <!-- About text -->
-        <p class="font-roboto-16-white">
+        <p class="font-sans text-md text-white">
           I'm Alex, an enthusiastic creator on the internet. In 2022, I completed my studies in BTS
           Networks and Systems, <br />
           which provided me with a solid understanding of networking and systems. Subsequently, I
@@ -48,29 +48,30 @@
         <!-- Download CV button -->
         <button
           @click.prevent="downloadFile"
-          class="font-roboto-16-white bg-transparent main-button"
-          id="contact-button"
+          class="border-white border-solid border-[3px] h-[50px] w-[150px]  text-lg text-white main-button-style-ex"
         >
           Download CV
-      </button>
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-;
+
 import TextAnimation from './TextAnimation.vue'
 
 // Array of coding languages for display
 const codingLanguages = [
   'c',
+  'scss',
   'tailwindcss',
-  'javascript',
+  'typescript',
   'mysql',
   'ruby',
   'php',
   'vuejs',
+  'nuxt',
   'django',
   'magento'
 ];
@@ -115,68 +116,3 @@ const downloadFile = async () => {
 
 </script>
 
-<style scoped>
-/* Styling for coding languages */
-.coding-languages {
-  color: white;
-  font-size: 50px;
-}
-
-/* Styling for contact button */
-#contact-button {
-  border-color: white;
-  border-style: groove;
-  padding: 10px;
-  color: white;
-  background: linear-gradient(white 0 0) left / var(--p, 0) no-repeat;
-  transition:
-    0.4s,
-    background-position 0s;
-  height: 50px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  font-size: 18px;
-}
-
-/* Hover effect for contact button */
-#contact-button:hover {
-  text-decoration: drop 1.2s ease-in-out infinite;
-  --p: 100%;
-  background-position: right;
-  color: black;
-}
-
-/* Styling for the about section */
-#about {
-  display: flex;
-  justify-content: center;
-}
-
-/* Styling for the right section */
-#about .right-section {
-  flex-direction: row;
-  width: 30%;
-}
-
-/* Styling for the max image */
-.max-image {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* Styling for the SVG filters */
-#filters {
-  display: none;
-}
-
-/* Responsive styling for smaller screens */
-@media (max-width: 767px) {
-  #about {
-    flex-wrap: wrap;
-    text-align: center;
-  }
-
-  #about .right-section {
-    width: 100%;
-  }
-}
-</style>

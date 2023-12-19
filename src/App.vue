@@ -18,7 +18,5 @@
 </script>
 
 <style>
-  /* Import necessary styles */
-  @import url("./assets/fonts.css");
-  @import url("./assets/main.css");
+
 </style>

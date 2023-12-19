@@ -2,21 +2,21 @@
   <!-- Vue transition for fade effect -->
   <transition name="fade" mode="out-in">
     <!-- Contact section -->
-    <section v-if="notSent" class="bg-black full-screen flex-center" id="contact">
+    <section v-if="notSent" class="bg-black w-full h-[80vh] flex flex-col  items-center justify-center " id="contact">
       <!-- Contact heading -->
-      <h1 class="front font-roboto-16-white" style="color: #008b8b; font-size: 24px;">Contact</h1>
+      <h1 class=" text-[#008b8b] font-sans text-2xl pb-4">Contact</h1>
 
       <!-- Contact form wrapper -->
-      <div class="contact-wrapper">
+      <div class="flex justify-center w-1/2 items-center">
         <!-- Contact form -->
-        <form ref="contactForm" class="form-horizontal" style="text-align: center;" @submit.prevent="submitForm">
+        <form ref="contactForm" class="flex flex-col items-center w-1/2 min-w-[400px] "  @submit.prevent="submitForm">
           <!-- Name input field -->
-          <div class="form-group">
+          <div class="w-5/6 m-0">
             <div class="col-sm-16">
               <input
                 v-model="formData.name"
                 type="text"
-                class="form-control"
+                class="w-full bg-black text-white border-2 border-white rounded-lg h-8 mb-3 tracking-wide"
                 placeholder="NAME"
                 name="name"
                 required
@@ -25,12 +25,12 @@
           </div>
 
           <!-- Email input field -->
-          <div class="form-group">
+          <div class="w-5/6 m-0">
             <div class="col-sm-16">
               <input
                 v-model="formData.email"
                 type="email"
-                class="form-control"
+                class="w-full bg-black text-white border-2 border-white rounded-lg h-8 mb-3 tracking-wide"
                 placeholder="EMAIL"
                 name="email"
                 required
@@ -41,7 +41,7 @@
           <!-- Message textarea -->
           <textarea
             v-model="formData.message"
-            class="form-control"
+            class="w-full bg-black text-white border-2 border-white rounded-lg mb-3 tracking-wide"
             rows="15"
             placeholder="MESSAGE"
             name="message"
@@ -50,9 +50,7 @@
 
           <!-- Submit button -->
           <button
-            class="main-button font-roboto-16-white bg-transparent"
-            id="contact-button"
-            style="width: 80%;"
+            class="border-white border-solid border-[3px] h-[50px] w-5/6  text-lg text-white main-button-style-ex"
             type="submit"
             value="SEND"
           >
@@ -66,24 +64,24 @@
 
     <!-- Response section -->
     <section v-else-if="notSent === false" class="bg-black full-screen flex-center" id="contact">
-      <div class="response-container">
+      <div class="flex flex-col gap-5 justify-center items-center">
         <!-- Error response -->
-        <div v-if="success === false" class="failure-inner">
-          <img src="../assets/images/error.gif" alt="error" style="width: 150%; padding-bottom: 10%" />
-          <h1 class="font-roboto-16-white bg" style="font-size: 40PX;">Oops!</h1>
-          <span class="font-roboto-16-white bg">An error has occurred while trying to send your email.</span>
-          <span class="font-roboto-16-white bg">Please try again later.</span>
+        <div v-if="success === false" class="flex flex-col justify-center items-center">
+          <img src="../assets/images/error.gif" alt="error" class="p-5 w-full select-none" />
+          <h1 class="font-sans text-white text-5xl pb-5">Oops!</h1>
+          <span class="font-sans text-white text-md">An error has occurred while trying to send your email.</span>
+          <span class="font-sans text-white text-md">Please try again later.</span>
         </div>
 
         <!-- Success response -->
-        <div v-else-if="success === true" class="success-inner">
-          <i class="fa fa-envelope" style="font-size: 250px; color: white; padding-bottom: 10%;"></i>
-          <span class="font-roboto-16-white bg">Your Mail was sent successfully!</span>
-          <span class="font-roboto-16-white bg">Press the button to go back.</span>
+        <div v-else-if="success === true" class="flex flex-col justify-center items-center">
+          <i class="fa fa-envelope pb-[10%] text-[250px] text-white  select-none"></i>
+          <span class="font-sans text-white text-md">Your Mail was sent successfully!</span>
+          <span class="font-sans text-white text-md">Press the button to go back.</span>
         </div>
 
         <!-- Go back button -->
-        <button class="button-link font-roboto-16-white bg-transparent" id="contact-button" style="height: auto" @click="resetForm">
+        <button class="button-link text-white font-sans text-md h-auto" @click="resetForm">
           Go back
         </button>
       </div>
@@ -183,53 +181,8 @@ const resetForm = () => {
   opacity: 0;
 }
 
-/* Contact section styles */
-#contact {
-  flex-direction: column;
-  position: relative;
-}
 
-/* Wrapper for contact elements */
-.contact-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  position: relative;
-  width: 50%;
-}
 
-/* Styles for left contact page */
-.form-horizontal {
-  width: 50%;
-  font-family: 'Lato';
-  font-weight: 400;
-  min-width: 400px;
-}
-
-/* Styles for name and email inputs */
-.name,
-.email {
-  height: 100px;
-}
-
-/* Styles for form groups */
-.form-group {
-  width: 85%;
-  margin: auto;
-}
-
-/* Styles for form controls and textarea */
-.form-control,
-textarea {
-  width: 100%;
-  background-color: #000;
-  color: #fff;
-  letter-spacing: 1px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  border-style: solid 3px white;
-  font-size: 16px;
-}
 
 /* Styles for response container */
 .response-container {
