@@ -3,7 +3,7 @@
   <BaseFooter>
    
     <template #social-icons>
-      <a v-for="icon in socialIcons" :key="icon.name" :href="icon.link" class="decoration-none text-gray transition duration-500 hover:text-white " >
+      <a v-for="icon in socialIcons" :key="icon.name" :href="icon.link" class="decoration-none  text-gray transition duration-500 hover:text-white " >
         <i :class="icon.iconClass" class="text-[2em] md:my-1 mx-3 "></i>
       </a>
     </template>
