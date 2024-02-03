@@ -1,7 +1,7 @@
 <template>
   <!-- Slide component -->
   <div
-    class="slide slide--1 relative flex h-fit items-center justify-center transition-transform duration-1000 top-0"
+    class="slide  relative flex w-[70vw] items-center justify-center transition-all duration-1000 top-0"
   >
     <div class="relative h-full w-3/5">
       <!-- Project title -->
@@ -9,11 +9,8 @@
         {{ title }}
       </h1>
       <!-- Project image -->
-      <img
-        src="../assets/images/forkify.png"
-        alt="forkify.png"
-        class="flex m-[auto] relative p-5 md:w-1/2 rounded-[50%]"
-      />
+     <img :src="imageSrc" :alt="title" class="flex m-[auto] p-5 md:w-[30vw] rounded-[50%]" />
+
       <!-- Project description -->
       <p class="text-weight-500 text-white text-center mb-6 project__text">{{ description }}</p>
       <address class="text-weight-500 text-white text-center mb-6 project__tecnologies-text">
@@ -35,7 +32,7 @@
 // Destructuring props for better readability
 /**
  * Props destructuring for Slide component.
- * @type {{ title: string, description: string, technologies: string, buttonColor: string, demoLink: string }}
+ * @type {{ title: string, description: string, technologies: string, buttonColor: string, demoLink: string imageSrc: string }}
  */
 interface SlideProps {
   title?: string;
@@ -43,6 +40,8 @@ interface SlideProps {
   technologies?: string;
   buttonColor?: string;
   demoLink?: string;
+  imageSrc?: string;
+
 }
 
 
@@ -51,9 +50,12 @@ const { title, description,technologies, buttonColor, demoLink }: SlideProps = d
   'description',
   'technologies',
   'buttonColor',
-  'demoLink'
+  'demoLink',
+  'imageSrc'
 ]);
+
 </script>
+
 
 <style scoped>
 /**
