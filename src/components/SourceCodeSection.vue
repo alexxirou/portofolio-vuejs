@@ -1,7 +1,7 @@
 <template>
-  <section id="source-code" class="flex flex-col w-full h-[100vh] relative">
-    <div class="h-[100vh] w-full" id="canvas-container">
-      <canvas class="w-1/2 h-[100vh] absolute left-1/2" id="canvas" ref="canvas"></canvas>
+  <section id="source-code" class="flex flex-col w-full h-[80vh] relative">
+    <div class=" w-full h-screen" id="canvas-container">
+      <canvas class="w-1/2  h-screen absolute left-1/2" id="canvas" ref="canvas"></canvas>
     </div>
     <div
       class="absolute inset-0 bg-gradient-to-r from-transparent to-black mix-blend-multiply"
@@ -62,7 +62,7 @@ export default {
       alphabet: '',
 
       // Animation settings
-      spawnInterval: 500,
+      spawnInterval: 100,
       density: 0.7,
       glitchInterval: 500,
       glitchAmount: 0.01,

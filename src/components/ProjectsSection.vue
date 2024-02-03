@@ -1,7 +1,7 @@
 <template>
   <!-- Projects section -->
   <section
-    class="bg-black h-[100vh] min-h-[1200px] flex flex-col justify-center items-center align-middle relative m-0 overflow-hidden"
+    class="bg-black h-screen w-screen flex flex-col justify-center items-center"
     id="projects"
   >
     <!-- Section title -->
@@ -44,7 +44,7 @@ provide('curSlide', curSlide);
 const slides = [
   {
     title: 'Recipe Finder Web Application',
-    imageSrc: 'src/assets/images/forkify.png',
+    imageSrc: '/src/assets/images/forkify.png',
     description:
       'The Recipe Finder Web Application is a fully functional and responsive web application that allows users to discover and explore a wide variety of recipes. It provides users with an intuitive and interactive interface to search for recipes, view detailed recipe information, adjust serving sizes, and bookmark their favorite recipes for quick access.',
     technologies: 'JavaScript (ES6+), Parcel Bundler, Forkify API',
@@ -54,7 +54,7 @@ const slides = [
   },
   {
     title: 'Battleship Game',
-    imageSrc: 'src/assets/images/forkify.png',
+    imageSrc: '/src/assets/images/Battleship.png',
     description:
       'A battleship game written in Ruby vs AI. It provides a GUI using tkinter for Ruby and Sinatra library to create API endpoints for a web UI.',
     technologies: 'Ruby, tk, sinstra, unicorn',

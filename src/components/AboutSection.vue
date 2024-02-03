@@ -1,9 +1,9 @@
 <template>
 <!-- About section -->
-  <section class="flex  flex-col md:flex-row align-middle justify-center w-full h-[100vh] max-md:flex-wrap max-md:text-center" id="about">
+  <section class="flex flex-col md:flex-row align-middle justify-center h-screen max-md:flex-wrap max-md:text-center" id="about">
     <!-- Left section with image -->
     <div class="flex flex-row  w-screen select-none justify-center items-center md:w-1/3">
-      <img class=" w-full" src="../assets/images/funny.jpg" />
+      <img  src="../assets/images/funny.jpg" />
     </div>
     <!-- Right section with text content -->
     <div class=" flex flex-row  w-screen  items-center justify-center md:w-1/3 ">
@@ -13,7 +13,7 @@
           <!-- Text animation component -->
           <text-animation></text-animation>
           <!-- Coding languages icons -->
-          <div class="text-[50px]">
+          <div class="md:text-[50px]  text-[30px]">
             <i
               v-for="(language, index) in codingLanguages"
               :key="index"
@@ -37,7 +37,7 @@
           </defs>
         </svg>
         <!-- About text -->
-        <p class="font-sans text-md text-white">
+        <p class="font-sans text-md text-white p-5  md:p-0">
           I'm Alex, an enthusiastic creator on the internet. In 2022, I completed my studies in BTS
           Networks and Systems, <br />
           which provided me with a solid understanding of networking and systems. Subsequently, I

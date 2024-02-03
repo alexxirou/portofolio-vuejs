@@ -1,6 +1,6 @@
 <template>
   <!-- Main page container -->
-  <div v-if="loaded" class="relative z-[1] bg-black scroll-smooth">
+  <div v-if="loaded" class="relative z-[1] bg-black h-fit scroll-smooth">
     <!-- About section component -->
     <about-section></about-section>
 

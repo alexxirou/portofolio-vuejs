@@ -8,7 +8,7 @@
   >
     <!-- Menu button -->
     <i
-      class="fas fa-bars text-3xl text-white transition duration-300 hover:text-gray-500 ml-20 rounded-md"
+      class="fa fa-bars text-3xl text-white transition duration-300 hover:text-gray-500 md:ml-20 rounded-md"
     ></i>
   </label>
 </template>

@@ -2,7 +2,7 @@
   <!-- Vue transition for fade effect -->
   <transition name="fade" mode="out-in">
     <!-- Contact section -->
-    <section v-if="notSent" class="bg-black w-full h-[80vh] flex flex-col  items-center justify-center " id="contact">
+    <section v-if="notSent" class="bg-black mt-40 flex flex-col  items-center justify-center " id="contact">
       <!-- Contact heading -->
       <h1 class=" text-[#008b8b] font-sans text-2xl pb-4">Contact</h1>
 
@@ -16,7 +16,7 @@
               <input
                 v-model="formData.name"
                 type="text"
-                class="w-full bg-black text-white border-2 border-white rounded-lg h-8 mb-3 tracking-wide"
+                class="w-full bg-black text-white border-2 border-white rounded-lg h-8 mb-3 tracking-wide p-2"
                 placeholder="NAME"
                 name="name"
                 required
@@ -30,7 +30,7 @@
               <input
                 v-model="formData.email"
                 type="email"
-                class="w-full bg-black text-white border-2 border-white rounded-lg h-8 mb-3 tracking-wide"
+                class="w-full bg-black text-white border-2 border-white rounded-lg h-8 mb-3 tracking-wide p-2"
                 placeholder="EMAIL"
                 name="email"
                 required
@@ -39,14 +39,18 @@
           </div>
 
           <!-- Message textarea -->
+          <div class="w-5/6 m-0">
+              <div class="col-sm-16">
           <textarea
             v-model="formData.message"
-            class="w-full bg-black text-white border-2 border-white rounded-lg mb-3 tracking-wide"
+            class="w-full bg-black text-white border-2 border-white rounded-lg mb-3 tracking-wide p-2"
             rows="15"
             placeholder="MESSAGE"
             name="message"
             required
           ></textarea>
+          </div>
+          </div>
 
           <!-- Submit button -->
           <button

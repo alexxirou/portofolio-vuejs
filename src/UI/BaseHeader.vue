@@ -22,7 +22,7 @@
       </ul>
     </div>
     <!-- Content wrapper -->
-    <div class="absolute m-[auto] flex ">
+    <div class="absolute md:m-0 md:left-auto left-[20%] flex ">
       <!-- Author name -->
       <p class="text-white text-md font-sans">Alexandros Xirouchakis</p>
     </div>
