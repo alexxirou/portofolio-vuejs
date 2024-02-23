@@ -69,11 +69,11 @@ const codingLanguages: string[] = [
   'typescript',
   'mysql',
   'ruby',
-  'php',
   'vuejs',
   'nuxt',
   'django',
-  'magento'
+  'rails',
+  'postgresql'
 ];
 
 /**
