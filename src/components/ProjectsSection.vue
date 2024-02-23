@@ -38,6 +38,7 @@ import ProjectSlider from '../UI/ProjectSlider.vue'
 import ProjectSlide from './ProjectSlide.vue'
 import imageForkify from './../assets/images/forkify.png';
 import imageBattleship from './../assets/images/Battleship.png';
+import imageAlpha_blog from './../assets/images/Alpha_blog.png';
 import { ref, provide } from 'vue'
 
 const curSlide=ref<number>(0);
@@ -62,6 +63,17 @@ const slides = [
     technologies: 'Ruby, tk, sinstra, unicorn',
     buttonColor: '#8b0000',
     demoLink: 'https://github.com/alexxirou/Battleship-ruby',
+    
+  },
+
+  {
+    title: 'Alpha_Blog',
+    imageSrc: imageAlpha_blog,
+    description:
+      'A blog application written in Ruby on Rails, where users can sign-up, create, edit and delete articles.',
+    technologies: 'Rails, Bootstrap, PostgreSQL',
+    buttonColor: '#8b0000',
+    demoLink: 'https://verbumsap.xyz/alpha_blog'
     
   }
 
