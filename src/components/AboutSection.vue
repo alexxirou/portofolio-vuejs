@@ -71,7 +71,6 @@ const codingLanguages: string[] = [
   'ruby',
   'vuejs',
   'nuxt',
-  'django',
   'rails',
   'postgresql'
 ];

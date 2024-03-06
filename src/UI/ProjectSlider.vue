@@ -10,14 +10,14 @@
       <slot></slot>
       <!-- Button to navigate to previous slide -->
       <button
-        class="absolute top-[60%] md:top-[50%] z-10 border-none bg-white font-sans text-black rounded-full h-10 w-10 cursor-pointer transform-[translate(50%,-50%)] md:left-[20%] left-[5%]"
+        class="absolute top-[60%] md:top-[40%] z-10 border-none bg-white font-sans text-black rounded-full h-10 w-10 cursor-pointer transform-[translate(50%,-50%)] md:left-[20%] left-[5%]"
         @click="prevSlide"
       >
         &larr;
       </button>
       <!-- Button to navigate to next slide -->
       <button
-        class="absolute top-[60%] md:top-[50%] z-10 border-none bg-white font-sans text-black rounded-full h-10 w-10 cursor-pointer transform-[translate(-50%, 50%)] md:right-[20%] right-[5%]"
+        class="absolute top-[60%] md:top-[40%] z-10 border-none bg-white font-sans text-black rounded-full h-10 w-10 cursor-pointer transform-[translate(-50%, 50%)] md:right-[20%] right-[5%]"
         @click="nextSlide"
       >
         &rarr;
